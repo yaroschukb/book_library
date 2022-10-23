@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-main-display',
+  selector: 'main-display',
   templateUrl: './main-display.component.html',
-  styleUrls: ['./main-display.component.scss']
+  styleUrls: ['./main-display.component.scss'],
 })
 export class MainDisplayComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
+  ngOnInit(): void {}
+  activeMenu: boolean = false;
+  openMenu() {
+    this.activeMenu = !this.activeMenu;
   }
-
 }

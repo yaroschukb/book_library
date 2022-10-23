@@ -1,1 +1,55 @@
-<p>main-display works!</p>
+<main class="main_display">
+  <nav class="sidebar" [ngClass]="{ active: activeMenu }">
+    <div class="logo">
+      <img
+        src="../../assets/library-building-com.svg"
+        alt=""
+        style="width: 30px"
+      />
+    </div>
+    <ul class="nav_menu">
+      <li [routerLink]="['/books']" class="book_list">
+        <div nz-icon>
+          <img
+            src="../../assets/library-svgrepo-com.svg"
+            alt=""
+            style="width: 30px"
+          />
+        </div>
+        <span>Book list</span>
+      </li>
+      <li [routerLink]="['/library']" class="book_library">
+        <div nz-icon>
+          <img
+            src="../../assets/bookshelf-svgrepo-com.svg"
+            alt=""
+            style="width: 30px"
+          />
+        </div>
+        <span>Library</span>
+      </li>
+    </ul>
+    <div
+      [ngClass]="{ active: activeMenu }"
+      class="left_arrow"
+      (click)="openMenu()"
+    >
+      <img
+        src="../../assets/left-arrow-return-svgrepo-com.svg"
+        alt=""
+        style="width: 30px"
+      />
+    </div>
+  </nav>
+  <section class="section">
+    <header class="header">
+      <div class="header_div">sign in</div>
+      <div class="header_div">222</div>
+      <div class="header_div">333</div>
+    </header>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+    <footer class="footer">Footer</footer>
+  </section>
+</main>

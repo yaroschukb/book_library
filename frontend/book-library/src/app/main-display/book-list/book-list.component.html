@@ -1,0 +1,12 @@
+<div class="book_list">
+  <div *ngFor="let item of books | async">
+    <div *ngIf="item; else emptyList">
+      <app-book-card
+        [author]="item.author"
+        [rate]="item.rate"
+        [description]="item.description"
+      ></app-book-card>
+    </div>
+    <ng-template #emptyList>No list!!!!</ng-template>
+  </div>
+</div>
