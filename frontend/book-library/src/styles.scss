@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+li {
+  list-style-type: none; 
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body{
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: auto;
+  font-size: 10px;
+}
