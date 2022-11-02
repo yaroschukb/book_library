@@ -1,55 +1,91 @@
-<main class="main_display">
-  <nav class="sidebar" [ngClass]="{ active: activeMenu }">
-    <div class="logo">
-      <img
-        src="../../assets/library-building-com.svg"
-        alt=""
-        style="width: 30px"
-      />
-    </div>
-    <ul class="nav_menu">
-      <li [routerLink]="['/books']" class="book_list">
-        <div nz-icon>
-          <img
-            src="../../assets/library-svgrepo-com.svg"
-            alt=""
-            style="width: 30px"
-          />
-        </div>
-        <span>Book list</span>
-      </li>
-      <li [routerLink]="['/library']" class="book_library">
-        <div nz-icon>
-          <img
-            src="../../assets/bookshelf-svgrepo-com.svg"
-            alt=""
-            style="width: 30px"
-          />
-        </div>
-        <span>Library</span>
-      </li>
-    </ul>
-    <div
-      [ngClass]="{ active: activeMenu }"
-      class="left_arrow"
-      (click)="openMenu()"
+<main class="container-fluid">
+  <div class="row overflow-hidden">
+    <nav
+      class="col-sm-auto bg-light sticky-top d-flex justify-content-between"
+      [class.active]="activeMenu"
     >
-      <img
-        src="../../assets/left-arrow-return-svgrepo-com.svg"
-        alt=""
-        style="width: 30px"
-      />
+      <div
+        class="d-flex flex-sm-column flex-row flex-nowrap bg-light align-items-center sticky-top"
+        [class.active]="activeMenu"
+      >
+        <div routerLink="/" class="d-block p-3 link-dark text-decoration-none">
+          <i class="icon-home fs-3"></i>
+        </div>
+        <ul
+          [class.active]="activeMenu"
+          class="nav nav-pills flex-sm-column flex-row flex-nowrap mb-auto mx-auto text-center align-items-start"
+        >
+          <li class="nav-item">
+            <div
+              routerLink="books"
+              class="nav-link py-3 px-2 text-truncate d-flex align-items-center"
+              title=""
+              data-bs-toggle="tooltip"
+              data-bs-placement="right"
+              data-bs-original-title="Home"
+            >
+              <i class="icon-books fs-3"></i>
+              <span class="ms-2 d-none d-sm-inline fs-4" *ngIf="activeMenu"
+                >Reading books</span
+              >
+            </div>
+          </li>
+          <li>
+            <div
+              routerLink="library"
+              class="nav-link py-3 px-2 d-flex align-items-center"
+            >
+              <i class="icon-lib fs-3"></i>
+              <span class="ms-2 d-none d-sm-inline fs-4" *ngIf="activeMenu"
+                >Library</span
+              >
+            </div>
+          </li>
+        </ul>
+        <div class="open-btn" (click)="open()">
+          <div class="left-arrow mb-3" [class.active]="activeMenu">
+            <img
+              src="../../assets/left-arrow-return-svgrepo-com.svg"
+              alt="Open"
+            />
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="col-sm p-3 min-vh-100 px-0 py-0">
+      <header
+        class="row-sm-auto bg-success sticky-top header d-flex align-items-center justify-content-end"
+      >
+        <div>
+          <input
+            type="text"
+            class="input-field"
+            value
+            placeholder="Search..."
+          />
+        </div>
+        <div class="dropdown">
+          <a
+            href="#"
+            class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle"
+            id="dropdownUser3"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="bi-person-circle h2"></i>
+          </a>
+          <ul
+            class="dropdown-menu text-small shadow"
+            aria-labelledby="dropdownUser3"
+          >
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+          </ul>
+        </div>
+      </header>
+      <section class="row-sm-auto bg-warning h-100">
+        <router-outlet></router-outlet>
+      </section>
     </div>
-  </nav>
-  <section class="section">
-    <header class="header">
-      <div class="header_div">sign in</div>
-      <div class="header_div">222</div>
-      <div class="header_div">333</div>
-    </header>
-    <div class="content">
-      <router-outlet></router-outlet>
-    </div>
-    <footer class="footer">Footer</footer>
-  </section>
+  </div>
 </main>

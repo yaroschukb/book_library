@@ -7,14 +7,9 @@ import { MainDisplayComponent } from './main-display/main-display.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { NzLayoutModule } from 'ng-zorro-antd/layout';
-import { NzIconModule } from 'ng-zorro-antd/icon';
-import { IconDefinition } from '@ant-design/icons-angular';
-import { PieChartOutline } from '@ant-design/icons-angular/icons';
-import { UnorderedListOutline } from '@ant-design/icons-angular/icons';
 import { LibraryComponent } from './main-display/library/library.component';
-const icons: IconDefinition[] = [PieChartOutline, UnorderedListOutline];
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,13 +18,7 @@ const icons: IconDefinition[] = [PieChartOutline, UnorderedListOutline];
     BookListComponent,
     LibraryComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    NzLayoutModule,
-    NzIconModule.forChild(icons),
-    HttpClientModule,
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, NgbModule],
   providers: [],
   bootstrap: [AppComponent, ApiService, HttpClientModule],
 })

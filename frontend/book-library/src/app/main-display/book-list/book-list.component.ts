@@ -53,7 +53,10 @@ export class BookListComponent implements OnInit {
   // ];
   books: any = [];
   ngOnInit(): void {
-    this.books = this.api.getBooks();
-    console.log(this.books);
+    this.api.getBooks().subscribe((res) => {
+      console.log(res);
+
+      this.books = res;
+    });
   }
 }
