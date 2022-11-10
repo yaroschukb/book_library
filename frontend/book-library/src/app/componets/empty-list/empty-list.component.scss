@@ -1,0 +1,22 @@
+.empty_element {
+  min-width: 30rem;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  span {
+    font-size: 1.6rem;
+  }
+}
+
+.icon-empty{
+  background-image: url('../../../assets/bookshelves-Empty.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  display: inline-block;
+  width: 15rem;
+  height: 15rem;
+}
