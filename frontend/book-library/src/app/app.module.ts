@@ -10,6 +10,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { LibraryComponent } from './main-display/library/library.component';
+import { LoaderComponent } from './componets/loader/loader.component';
+import { EmptyListComponent } from './componets/empty-list/empty-list.component';
+import { HomeComponent } from './main-display/home/home.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,6 +20,9 @@ import { LibraryComponent } from './main-display/library/library.component';
     BookCardComponent,
     BookListComponent,
     LibraryComponent,
+    LoaderComponent,
+    EmptyListComponent,
+    HomeComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, NgbModule],
   providers: [],
