@@ -8,55 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookListComponent implements OnInit {
   constructor(private api: ApiService) {}
-  // books: any = [
-  //   {
-  //     author: 'London',
-  //     rate: 4,
-  //     description: 'This book about... Bery nice... This wolf... Sad end...',
-  //   },
-  //   {
-  //     author: 'Brown',
-  //     rate: 5,
-  //     description:
-  //       'This book about... Very exited... travels... arcitecture... art, museum',
-  //   },
-  //   {
-  //     author: 'Smith',
-  //     rate: 4,
-  //     description: 'This book about... Any thing about poetry',
-  //   },
-  //   {
-  //     author: 'Harary',
-  //     rate: 3,
-  //     description: 'This book about... Philosophy... Humanity... Future... ',
-  //   },
-  //   {
-  //     author: 'Taleb',
-  //     rate: 2,
-  //     description: 'This book about... air saler... ',
-  //   },
-  //   {
-  //     author: 'Taleb',
-  //     rate: 2,
-  //     description: 'This book about... air saler... ',
-  //   },
-  //   {
-  //     author: 'Taleb',
-  //     rate: 2,
-  //     description: 'This book about... air saler... ',
-  //   },
-  //   {
-  //     author: 'Taleb',
-  //     rate: 2,
-  //     description: 'This book about... air saler... ',
-  //   },
-  // ];
   books: any = [];
+  isLoading: boolean = false;
   ngOnInit(): void {
-    this.api.getBooks().subscribe((res) => {
-      console.log(res);
-
-      this.books = res;
+    this.getBooksFromDB();
+  }
+  getBooksFromDB() {
+    this.isLoading = true;
+    return this.api.getBooks().subscribe((items) => {
+      this.books = items;
+      this.isLoading = false;
     });
   }
 }

@@ -1,12 +1,19 @@
-  .book_list {
+  .book_list_section {
     display: flex;
+    justify-content: flex-start;
     flex-wrap: wrap;
     min-width: 100px;
     min-height: 100px;
     height: 100%;
   }
 
-.book_list>* {
-  flex: 1 1 160px;
+.book_list_section>* {
+  flex: 0 1 160px;
   margin: 10px;
+}
+
+.book_list{
+  position:absolute;
+  top: 50%;
+  left: 40%;
 }

@@ -1,14 +1,21 @@
-<div class="book_list">
-  <ng-template *ngIf="books.length > 0; else emptyList">
-    <ng-template *ngFor="let item of books | async">
-      <div>
-        <app-book-card
-          [author]="item.author"
-          [rate]="item.rate"
-          [description]="item.description"
-        ></app-book-card>
-      </div>
-    </ng-template>
+<div class="book_list_section">
+  <ng-container *ngIf="!isLoading && books.length > 0; else emptyList">
+    <div *ngFor="let item of books">
+      <app-book-card
+        [author]="item.author"
+        [rate]="item.rate"
+        [description]="item.description"
+      ></app-book-card>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="isLoading">
+    <div class="book_list">
+      <app-loader></app-loader>
+    </div>
+  </ng-container>
+  <ng-template #emptyList>
+    <div *ngIf="!isLoading && books.length <= 0">
+      <app-empty-list text="Empty List!"></app-empty-list>
+    </div>
   </ng-template>
-  <ng-template #emptyList style="color: red"> addsadsasdadsas</ng-template>
 </div>
