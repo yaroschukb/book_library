@@ -3,4 +3,27 @@
   background: beige;
   height: 250px;
   width: 200px;
+  .close-card{
+    display:none;
+    position:absolute;
+    top: 0;
+    right: 0;
+    margin: 0 5px 0 5px;
+    i {
+      width: 100%;
+      font-size: 2rem;
+    }
+  }
+  &:hover{
+    .close-card{
+      display:flex;
+      justify-content: space-between;
+      i {
+        width: 100%;
+        font-size: 2rem;
+      }
+    }
+  }
 }
+
+
