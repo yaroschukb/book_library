@@ -1,3 +1,4 @@
+import { AddingBookComponent } from './../componets/adding-book/adding-book.component';
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
@@ -13,5 +14,8 @@ export class MainDisplayComponent implements OnInit {
   activeMenu: boolean = false;
   open() {
     this.activeMenu = !this.activeMenu;
+  }
+  createModal() {
+    this.modalService.open(AddingBookComponent);
   }
 }
