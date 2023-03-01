@@ -1,3 +1,4 @@
+import { AtGuard } from './common/guards/at.guard';
 import * as winston from 'winston';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { BooksModule } from './books/books.module';
@@ -8,6 +9,7 @@ import { ConfigModule } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
 import { WinstonModule } from 'nest-winston';
+import { APP_GUARD } from '@nestjs/core';
 
 @Module({
   imports: [
@@ -37,6 +39,12 @@ import { WinstonModule } from 'nest-winston';
     UserModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+    {
+      provide: APP_GUARD,
+      useClass: AtGuard,
+    },
+  ],
 })
 export class AppModule {}
