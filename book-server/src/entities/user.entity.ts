@@ -24,6 +24,9 @@ export class Users {
   @Column()
   salt: string;
 
+  @Column({ nullable: true })
+  hashedRt: string;
+
   @OneToMany(() => Books, (books) => books.id)
   books: Books[];
 
